@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Early Detection of Hepatitis C Virus</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body class="bg-info">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a href="http://127.0.0.1:5000/" class="navbar-brand fw-bolder">HCV</a>
+            <ul class="navbar-nav">
+                <li><a href="http://127.0.0.1:5000/" class="nav-link fw-bolder">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="py-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-success">
+                            <h3 class="text-center text-white">Put Patient Information to Predict Hepatitis C Virus</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <form action="{{ url_for('predict')}}"method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row mb-3">
+                                            <label for="age" class="col-md-5">Age</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="Age" id="age" class="form-control" placeholder="e.g. 39" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="sex" class="col-md-5">Gender</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="Sex" id="sex" class="form-control" placeholder="1:Male   0:Female" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="alb" class="col-md-5">Albumin (ALB)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="ALB" id="alb" class="form-control" placeholder="e.g. 41.6 (Range- 14.9 to 82.2)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="alp" class="col-md-5">Alkaline Phosphatase (ALP)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="ALP" id="alp" class="form-control" placeholder="e.g. 68.2 (Range- 11.3 to 416.6)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="alt" class="col-md-5">Alanine Transaminase Ratio (ALT)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="ALT" id="alt" class="form-control" placeholder="e.g. 28.44 (Range- 0.9 to 325.3)" required="required"/>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3">
+                                            <label for="ast" class="col-md-5">Aspartate Transaminase Ratio (AST)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="AST" id="ast" class="form-control" placeholder="e.g. 34.7 (Range- 10.6 to 324)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="row mb-3">
+                                            <label for="bil" class="col-md-5">Bilateral (BIL)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="BIL" id="bil" class="form-control" placeholder="e.g. 11.3 (Range- 0.8 to 254)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="che" class="col-md-5">Cholinesterase (CHE)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="CHE" id="che" class="form-control" placeholder="e.g. 8.1 (Range- 1.42 to 16.41)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="chol" class="col-md-5">Cholesterol (CHOL)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="CHOL" id="chol" class="form-control" placeholder="e.g. 5.36 (Range- 1.43 to 9.67)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="crea" class="col-md-5">Creatinine (CREA)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="CREA" id="crea" class="form-control" placeholder="e.g. 81.28 (Range- 8 to 1079)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="ggt" class="col-md-5">Gamma-Glutamyl Transferase (GGT)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="GGT" id="ggt" class="form-control" placeholder="e.g. 39.53 (Range- 4.5 to 650.9)" required="required"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="prot" class="col-md-5">Protein (PROT)</label>
+                                            <div class="col-md-7">
+                                                <input type="text" name="PROT" id="prot" class="form-control" placeholder="e.g. 72.04 (Range- 44.8 to 90)" required="required"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <div class="row">
+                                        <div class="col-md-12 py-3">
+                                            <input type="submit" class="btn btn-success" value="Predict HCV"/>
+<!--                                            <input type="reset" class="btn btn-warning" value="Reset"/>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                            <h1 class="text-white bg-dark">{{ prediction_text }}</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

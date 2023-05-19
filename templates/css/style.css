@@ -1,0 +1,35 @@
+.navbar .nav-item .dropdown-menu
+{
+    display: none;
+}
+
+.navbar .nav-item:hover .dropdown-menu
+{
+    display: block;
+}
+
+.my-caption
+{
+    height: 200px;
+    top:150px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 600px)
+{
+    .carousel-caption
+    {
+        top:0;
+    }
+
+}
+/*
+
+@media screen and (min-width: 601px) and (max-width: 1000px){
+    .carousel-caption
+    {
+        top:0;
+    }
+}
+
+ */
